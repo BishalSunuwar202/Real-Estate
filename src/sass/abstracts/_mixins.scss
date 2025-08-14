@@ -1,0 +1,7 @@
+// Reusable mixins/functions
+
+@use './variables.scss';
+    
+@mixin button-style ($bg-color, $radius: $rounded-md) {
+    padding: $space-sm $space-md;
+}
