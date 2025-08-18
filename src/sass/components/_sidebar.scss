@@ -1,0 +1,26 @@
+.sidebar {
+  background-color: rgba(102, 51, 153, 1);
+  border-bottom: 1px white solid;
+  // background-color: black;
+  color: whitesmoke;
+  &__list {
+    margin: 0;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    // text-align: start;
+    list-style-type: none;
+  }
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  &__button {
+    margin-inline: 8rem;
+    padding: 0.2rem;
+    border-radius: 1rem;
+  }
+}

@@ -41,9 +41,11 @@ const ReactHookForm = () => {
         <input type="number" {...register("maximumPrice")} />
       </div>
 
-      <button type="submit">
-        <CiSearch className="search-icon" />
-      </button>
+      <div>
+        <button type="submit">
+          <CiSearch className="search-icon" />
+        </button>
+      </div>
     </form>
   );
 };

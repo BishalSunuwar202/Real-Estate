@@ -4,17 +4,22 @@
 //   margin: 0;
 //   padding: 0;
 // }
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
 
-// html {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
 
 body {
   margin: 0;
   padding: 0;
-  font-family: v.$font;
+  font-family: Arial, Helvetica, sans-serif;
+  //font-family: v.$font;
   //background-color: var(--color-bg);
   //color: var(--color-text)
 }
