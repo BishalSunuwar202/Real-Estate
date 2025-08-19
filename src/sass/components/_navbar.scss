@@ -10,6 +10,10 @@
   align-items: center;
   color: hsl(0, 0%, 100%);
   border-bottom: 1px solid white;
+  // @include a.breakpoint(medium) {
+
+  // }
+  
 
   &__list {
     display: none;
@@ -34,6 +38,13 @@
     display: none;
     @include a.breakpoint(medium) {
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+     @include a.breakpoint(large) {
+      display: flex;
+      flex-direction: row;
       align-items: center;
       gap: 0.5rem;
     }

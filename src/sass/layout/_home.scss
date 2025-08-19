@@ -3,43 +3,60 @@
 .house1 {
   background-image: url("../../assets/4214259337.jpg");
   background-size: cover;
-  height: 45rem;
-  max-height: 100%;
+  //border: solid purple;
+  //height: 45rem;
+
+  min-height: 100vh; //fill full screen height responsively
   background-color: rgba(34, 8, 151, 0.4);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
   background-blend-mode: multiply;
-}
-
-.home-search {
-  // border: red solid;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin-inline: 1rem;
-
   @include a.breakpoint(medium) {
-    margin: 2rem;
-    padding: 1rem;
+    // optional overrides for medium+
+    //min-height: 50rem;
+    min-height: 100vh;
+  }
+
+  .home-search {
+    //border: red solid;
     display: flex;
     flex-direction: column;
-    //align-items: center;
-  }
-
-  h1 {
-    color: hsl(0, 8%, 95%);
-    font-weight: bold;
+    text-align: center;
+    margin-inline: 1rem;
 
     @include a.breakpoint(medium) {
-      scale: 2;
+      margin-top: 2rem;
+      margin-inline: 0;
+      //padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      //align-items: center;
+    }
+    
+
+    h1 {
       color: hsl(0, 8%, 95%);
       font-weight: bold;
-    }
-  }
-  p {
-    color: #f4eff9;
 
-    @include a.breakpoint(medium) {
-      font-weight: bold;
-      font-size: larger;
+      @include a.breakpoint(medium) {
+        //scale: 2; caused overflow
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: hsl(0, 8%, 95%);
+        font-weight: bolder;
+      }
+    }
+    p {
+      color: #f4eff9;
+
+      @include a.breakpoint(medium) {
+        margin-top: 0;
+        margin-bottom: 4rem;
+        font-weight: bold;
+        font-size: larger;
+        font-family: "Times New Roman", Times, serif;
+      }
     }
   }
 }

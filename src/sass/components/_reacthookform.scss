@@ -17,14 +17,19 @@
     //gap: 0.3rem;
   }
   @include a.breakpoint(medium) {
-    margin: 2rem;
-    padding: 1rem;
+    margin-inline: 0;
+    //margin: 2rem;
+    padding: 1.2rem;
     display: flex;
     flex-direction: row;
-    //justify-content: space-between;
+    justify-content: center;
+    border-radius: 0;
     //align-items: center;
-    gap: 2rem;
-  }
+    gap: 1rem;
+  } 
+   @include a.breakpoint(large) {
+      justify-content: center;
+    }
 
   input {
     margin-top: 0.4rem;
@@ -32,6 +37,8 @@
     background-color: rgba(213, 206, 206, 0.8);
     border: none;
     border-radius: 0.5rem;
+    width: 100%;
+    //box-sizing: border-box;
   }
   button {
     margin-top: 1rem;
@@ -44,18 +51,17 @@
       font-size: x-large;
     }
     @include a.breakpoint(medium) {
-      margin-top: 1.5rem;
+      margin-top: 1.3rem;
       //width: 5rem;
       //padding: 0;
-      height: 2.6rem;
+      height: 2.2rem;
       //padding: 0.5rem;
       // border: thin;
 
       border-radius: 10px;
-      .search-icon {
-        scale: 1.5;
-        font-size: x-large;
-      }
     }
+  }
+  button .search-icon {
+    font-size: x-large;
   }
 }
