@@ -1,16 +1,27 @@
 import "./sass/style.scss";
 import MainNavigation from "./components/MainNavigation";
-import Search from "./pages/Search";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage";
+import Home from "./pages/Home";
+import RootLayout from "./pages/RootLayout";
+//import Chatbotify from "./components/Chatbotify";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <div className="house1">
-        <MainNavigation />
-        <Search />
-      </div>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

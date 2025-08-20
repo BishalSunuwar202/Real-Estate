@@ -26,7 +26,7 @@
     margin-inline: 1rem;
 
     @include a.breakpoint(medium) {
-      margin-top: 2rem;
+      //margin-top: 2rem;
       margin-inline: 0;
       //padding: 1rem;
       display: flex;

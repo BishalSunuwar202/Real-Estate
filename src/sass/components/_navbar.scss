@@ -10,10 +10,9 @@
   align-items: center;
   color: hsl(0, 0%, 100%);
   border-bottom: 1px solid white;
-  // @include a.breakpoint(medium) {
-
-  // }
-  
+  @include a.breakpoint(medium) {
+    border-bottom: 0.1px solid white;
+  }
 
   &__list {
     display: none;
@@ -42,7 +41,7 @@
       align-items: center;
       gap: 0.5rem;
     }
-     @include a.breakpoint(large) {
+    @include a.breakpoint(large) {
       display: flex;
       flex-direction: row;
       align-items: center;

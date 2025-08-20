@@ -34,11 +34,11 @@ const ReactHookForm = () => {
       {/* {errors.age && <p>Please enter number for age.</p>} */}
       <div>
         <label htmlFor="Minimum Price">Minimum Price</label>
-        <input type="number" {...register("minimumPrice")} />
+        <input type="text" inputMode="numeric" pattern="[0-9]+" {...register("minimumPrice")} />
       </div>
       <div>
         <label htmlFor="Maximum Price">Maximum Price</label>
-        <input type="number" {...register("maximumPrice")} />
+        <input type="text" inputMode="numeric" pattern="[0-9]+" {...register("maximumPrice")} />
       </div>
 
       <div>
