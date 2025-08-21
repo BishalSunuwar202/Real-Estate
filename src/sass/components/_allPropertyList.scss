@@ -1,0 +1,40 @@
+@use "../abstracts/" as a;
+
+// .property {
+
+// }
+.property {
+  &__list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    //border: yellow solid;
+    //margin: 0;
+    padding: 0;
+  }
+  @include a.breakpoint(medium) {
+    &__list {
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 0;
+    }
+  }
+  &__lists {
+    // border: pink solid;
+    margin-inline: 1.5rem;
+  }
+  &__wrapper {
+    //width: 100%;
+    //max-width: 18rem;
+    //border: green solid;
+  }
+
+  img {
+    //margin-inline: 1rem;
+    width: 100%;
+    height: 15rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    object-fit: cover;
+  }
+}
