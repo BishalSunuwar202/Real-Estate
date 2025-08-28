@@ -1,0 +1,25 @@
+import React from "react";
+import Authentication from "../components/Authentication";
+import { useMutation } from "@tanstack/react-query";
+import loginApi from "../api/loginApi";
+
+const AuthenticationPage = () => {
+  const mutation = useMutation({
+    mutationFn: loginApi,
+    onSuccess: (data) => {
+      console.log("sign in success", data);
+      //queryClient.invalidateQueries(["users"]); // if you want to refetch users list
+    },
+    onError: (err) => {
+      console.log(err.response?.data?.message || "post failed");
+    },
+  });
+
+  return (
+    <div>
+      <Authentication mutation={mutation} />
+    </div>
+  );
+};
+
+export default AuthenticationPage;
