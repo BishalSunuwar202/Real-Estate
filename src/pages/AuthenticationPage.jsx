@@ -6,8 +6,10 @@ import loginApi from "../api/loginApi";
 const AuthenticationPage = () => {
   const mutation = useMutation({
     mutationFn: loginApi,
-    onSuccess: (data) => {
-      console.log("sign in success", data);
+    onSuccess: ({ access_token, refresh_token }) => {
+      localStorage.setItem("access_token", access_token);
+      localStorage.setItem("refresh_token", refresh_token);
+      console.log("sign in success", access_token, refresh_token);
       //queryClient.invalidateQueries(["users"]); // if you want to refetch users list
     },
     onError: (err) => {

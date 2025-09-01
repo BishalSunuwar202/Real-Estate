@@ -6,14 +6,17 @@ const loginApi = async (data) => {
 
     console.log(response);
 
-    // return response.data;
+    const access_token = response?.data?.data?.access;
+    const refresh_token = response?.data?.data?.refresh;
+    if (!access_token) {
+      throw new Error("no token");
+    }
+    // console.log(access_token);
 
-    const access_token = response.data.data.access;
-    console.log(access_token);
-
-    localStorage.setItem("access_token", access_token);
+    return {access_token, refresh_token};
   } catch (error) {
     console.error(error);
+    throw error;
   }
 };
 

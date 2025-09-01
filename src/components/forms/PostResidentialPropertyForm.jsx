@@ -18,19 +18,19 @@ const PostResidentialPropertyForm = () => {
       //propertyType: ["Buy", "Rent"],
       buy: false,
       rent: false,
-      banner_photo: null,
+      banner_photo: null, //cannot write null be in register("banner_photo") this expects string and that can cause error
       address: {
         street1: "",
         street2: "",
         province: "",
         district: "",
         municipality: "",
-        ward: null,
+        ward: "",
       },
       //amenities: ["bed", "light", "water"],
-      amenities: [],
-      property_plan_id: null,
-      storey: null,
+      amenity_ids: [],
+      property_plan_id: 1,
+      storey: "",
       total_house_area: "",
       total_land_area: "",
       face: "",
@@ -49,7 +49,7 @@ const PostResidentialPropertyForm = () => {
   const mutation = usePostResidential();
   console.log("eroors in form", errors);
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("form data after submit", data);
     mutation.mutate(data, {
       onSuccess: () => {
         console.log("signup successful");
@@ -102,11 +102,11 @@ const PostResidentialPropertyForm = () => {
       <div>
         <label>Property Type</label>
         <label>
-          <input type="checkbox" value="Buy" {...register("buy")} />
+          <input type="checkbox" {...register("buy")} />
           Buy
         </label>
         <label>
-          <input type="checkbox" value="Rent" {...register("rent")} />
+          <input type="checkbox" {...register("rent")} />
           Rent
         </label>
       </div>
@@ -154,59 +154,35 @@ const PostResidentialPropertyForm = () => {
       <div htmlFor="Amenities">Amenitites</div>
       <Controller
         control={control}
-        name="amenities"
+        name="amenity_ids"
         render={({ field }) => (
           <div>
             {dataAmenities?.map((amenity) => (
               <label key={amenity.id}>
-                {amenity.name}
                 <input
                   type="checkbox"
+                  value={amenity.id}
                   // Check if the current value is included in the array of selected items
-                  checked={field.value?.some(
-                    // this checked is attribute of input
-                    (item) => item.id === amenity.id
-                  )}
+                  // checked={field.value?.some(
+                  // this checked is attribute of input
+                  //   (item) => item.id === amenity.id
+                  // )}
+                  checked={field.value?.includes(amenity.id)}
                   onChange={(e) => {
+                    const id = parseInt(e.target.value);
                     const checked = e.target.checked;
                     const newArray = checked
-                      ? [...(field.value ?? []), amenity]
-                      : field.value?.filter((item) => item.id !== amenity.id);
+                      ? [...(field.value ?? []), amenity.id]
+                      : field.value?.filter((item) => item !== id);
                     field.onChange(newArray);
                   }}
                 />
+                {amenity.name}
               </label>
             ))}
           </div>
         )}
       />
-      {/* <div>
-        <label>Amenities</label>
-        <label>
-          <input
-            type="checkbox"
-            id="1"
-            value="bed"
-            {...register("Bed")}
-            onChange={(e) => {
-              const checked = e.target.checked;
-              if(checked) {
-
-                const newArray = [...dataAmenities]
-              }
-            }}
-          />
-          Bed
-        </label>
-        <label>
-          <input type="checkbox" value="light" {...register("Light")} />
-          Light
-        </label>
-        <label>
-          <input type="checkbox" value="water" {...register("Water")} />
-          Water
-        </label>
-      </div> */}
 
       {/* Property Plan */}
       <div>
@@ -229,11 +205,14 @@ const PostResidentialPropertyForm = () => {
       {/* House & Land Area */}
       <div>
         <label>Total House Area</label>
-        <input placeholder="Total House Area" {...register("totalHouseArea")} />
+        <input
+          placeholder="Total House Area"
+          {...register("total_house_area")}
+        />
       </div>
       <div>
         <label>Total Land Area</label>
-        <input placeholder="Total Land Area" {...register("totalLandArea")} />
+        <input placeholder="Total Land Area" {...register("total_land_area")} />
       </div>
 
       {/* Face */}

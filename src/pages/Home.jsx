@@ -12,15 +12,17 @@ const Home = () => {
   const {
     data: Lists,
     error,
+    isPending,
     isLoading,
     status,
   } = useQuery({
     queryKey: ["getAllData"],
     queryFn: getListApi,
   });
-
+7
   console.log(status);
-  //console.log(status);
+  console.log(Lists)
+  console.log(isPending);
   //console.log(Lists);
   console.log(status);
   //console.log(error);

@@ -7,7 +7,7 @@ const postPropertyApi = async (data) => {
     return response.data;
   } catch (error) {
     console.log("in err")
-    console.error(error.response?.data || error.message);
+    //console.error(error.response?.data || error.message);
     //throw error; // rethrow so caller can handle it
      throw error.response?.data || error;
   }

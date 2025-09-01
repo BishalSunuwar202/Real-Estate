@@ -23,11 +23,11 @@
     // border: pink solid;
     margin-inline: 1.5rem;
   }
-  &__wrapper {
+ // &__wrapper {
     //width: 100%;
     //max-width: 18rem;
     //border: green solid;
-  }
+  //}
 
   img {
     //margin-inline: 1rem;
@@ -36,5 +36,31 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     object-fit: cover;
+  }
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    &-price {
+     
+      padding-top: 0.5rem ;
+      padding-bottom: 0.5rem;
+      padding-inline: 0;
+      background-color: #00D363;
+      width: 7rem;
+      font-weight: bolder;
+      color: white;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    // hr {
+    //     border: solid;
+        
+    // }
+    &-amenities{
+      border: black solid;
+      display: flex;
+      gap: 2rem;
+    }
+  
   }
 }

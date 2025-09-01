@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import RootLayout from "./pages/RootLayout";
+import PostResidential from "./pages/postProperties/PostResidential";
+import AuthenticationPage from "./pages/AuthenticationPage";
 //import Chatbotify from "./components/Chatbotify";
 
 const router = createBrowserRouter([
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <AuthenticationPage />
+      },
+      {
+        path: "/post-property",
+        element: <PostResidential />,
       },
     ],
   },
