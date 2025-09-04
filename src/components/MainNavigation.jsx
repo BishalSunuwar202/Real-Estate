@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import SideBar from "./SideBar";
+import { Link } from "react-router-dom";
+import { axiosInstance } from "../api/axiosInstance";
 
 const MainNavigation = () => {
   const [open, setOpen] = useState(false);
+  const username = localStorage.getItem("username");
+  console.log(username);
+  const handleClick = async () => {
+    const response = await axiosInstance.post("/auth/logout/");
+    return response;
+  };
   return (
     <>
       <nav className="navbar">
@@ -16,8 +24,18 @@ const MainNavigation = () => {
           <li className="navbar__lister">Gallery</li>
         </ul>
         <div className="navbar__actions">
-          <button className="navbar__button">Contact Us</button>
-          <button className="navbar__button">Login</button>
+          {!username ? (
+            <>
+              <button className="navbar__button">Contact Us</button>
+              <Link to={"login"}>
+                <button className="navbar__button">Login</button>
+              </Link>
+            </>
+          ) : (
+            <div>
+              {username} <button onClick={handleClick}>logout</button>
+            </div>
+          )}
         </div>
         <button
           className="navbar__hamburger-icon"
